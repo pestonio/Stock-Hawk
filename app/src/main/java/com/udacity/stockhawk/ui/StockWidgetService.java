@@ -38,7 +38,7 @@ public class StockWidgetService extends RemoteViewsService {
 
             @Override
             public void onDataSetChanged() {
-               long identity =  Binder.clearCallingIdentity();
+                long identity = Binder.clearCallingIdentity();
                 String[] projection = {
                         Contract.Quote.COLUMN_SYMBOL,
                         Contract.Quote.COLUMN_PRICE,

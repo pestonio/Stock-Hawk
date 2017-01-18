@@ -69,8 +69,14 @@ public class StockWidgetService extends RemoteViewsService {
                 data.moveToPosition(position);
                 RemoteViews views = new RemoteViews(getPackageName(), R.layout.stock_widget_list_item);
                 int symbolColumn = data.getColumnIndex(Contract.Quote.COLUMN_SYMBOL);
+                int priceColumn = data.getColumnIndex(Contract.Quote.COLUMN_PRICE);
+                int changeColumn = data.getColumnIndex(Contract.Quote.COLUMN_ABSOLUTE_CHANGE);
                 String symbol = data.getString(symbolColumn);
+                String price = data.getString(priceColumn);
+                String change = data.getString(changeColumn);
                 views.setTextViewText(R.id.widget_symbol, symbol);
+                views.setTextViewText(R.id.widget_value, "$" + price);
+                views.setTextViewText(R.id.widget_change, change + " ($)");
                 return views;
             }
 
